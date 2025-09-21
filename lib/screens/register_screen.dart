@@ -24,7 +24,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterScreen>(
+    return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
           if(state is RegisterLoading)
             isLoading = true ;
