@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scholar_chat/firebase_options.dart';
 import 'package:scholar_chat/screens/chat_screen.dart';
 import 'package:scholar_chat/screens/cubits/loginCubit/login_cubit.dart';
+import 'package:scholar_chat/screens/cubits/registerCubit/register_cubit.dart';
 import 'package:scholar_chat/screens/login_screen.dart';
 import 'package:scholar_chat/screens/register_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,8 +24,16 @@ class ScholarChat extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginCubit(),
+        ),
+        BlocProvider(
+          create: (context) => RegisterCubit(),
+        ),
+      ],
+
       child: MaterialApp(
         routes: {
           'loginpage': (context) => LoginPage(),
