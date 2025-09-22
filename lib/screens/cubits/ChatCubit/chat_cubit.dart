@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 
 import '../../../constants.dart';
+import '../../../models/message.dart';
 
 part 'chat_state.dart';
 
@@ -23,6 +24,13 @@ class ChatCubit extends Cubit<ChatState> {
         .snapshots()
         .listen((event){
           print("success");
+          List<Message> messagelist = [];
+          for(var doc in event.docs)
+            {
+              messagelist.add(Message.fromjson(doc));
+            }
+          emit(ChatSuccess(messages: messagelist));
+
     }
 
     );}

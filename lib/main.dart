@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scholar_chat/firebase_options.dart';
 import 'package:scholar_chat/screens/chat_screen.dart';
+import 'package:scholar_chat/screens/cubits/ChatCubit/chat_cubit.dart';
 import 'package:scholar_chat/screens/cubits/loginCubit/login_cubit.dart';
 import 'package:scholar_chat/screens/cubits/registerCubit/register_cubit.dart';
 import 'package:scholar_chat/screens/login_screen.dart';
@@ -32,8 +33,10 @@ class ScholarChat extends StatelessWidget {
         BlocProvider(
           create: (context) => RegisterCubit(),
         ),
+        BlocProvider(
+          create: (context) => ChatCubit(),
+        ),
       ],
-
       child: MaterialApp(
         routes: {
           'loginpage': (context) => LoginPage(),
