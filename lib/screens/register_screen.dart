@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scholar_chat/screens/login_screen.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../constants.dart';
 import '../helper/showSnackBar.dart';
 import '../widgets/custom_Buton.dart';
 import '../widgets/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'chat_screen.dart';
 import 'cubits/authenticationCubit/auth_cubit.dart';

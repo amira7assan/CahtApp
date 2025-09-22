@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scholar_chat/constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:scholar_chat/models/message.dart';
 import 'package:scholar_chat/screens/cubits/ChatCubit/chat_cubit.dart';
 import '../widgets/chatBuble.dart';
-import 'package:scholar_chat/constants.dart';
 
 class ChatScreen extends StatefulWidget {
   static String id = 'chatPage';

@@ -6,8 +6,6 @@ import 'package:scholar_chat/screens/cubits/ChatCubit/chat_cubit.dart';
 import 'package:scholar_chat/screens/login_screen.dart';
 import 'package:scholar_chat/screens/register_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
