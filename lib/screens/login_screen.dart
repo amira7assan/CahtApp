@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scholar_chat/screens/register_screen.dart';
 import 'package:scholar_chat/screens/cubits/loginCubit/login_cubit.dart';
+import 'package:scholar_chat/screens/cubits/ChatCubit/chat_cubit.dart';
 import 'chat_screen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -31,6 +32,7 @@ class LoginPage extends StatelessWidget {
           showSnakBar(context, state.errorMsg);
           isLoading = false;
         }        else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getMessages();
           Navigator.pushNamed(context, ChatScreen.id);
           isLoading = false;
         }},
