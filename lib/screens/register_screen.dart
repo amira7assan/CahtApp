@@ -9,7 +9,7 @@ import '../widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'chat_screen.dart';
-import 'cubits/registerCubit/register_cubit.dart';
+import 'cubits/authenticationCubit/auth_cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   static String id = 'register';
@@ -24,7 +24,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
           if(state is RegisterLoading)
             isLoading = true ;
@@ -92,7 +92,7 @@ class RegisterScreen extends StatelessWidget {
                     CustomButon(
                       onTap: () async {
                         if (formkey.currentState!.validate()) {
-                          BlocProvider.of<RegisterCubit>(context)
+                          BlocProvider.of<AuthCubit>(context)
                               .RegisterUser(email: email!, password: password!);
                         }
                         else {}

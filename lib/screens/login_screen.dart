@@ -11,9 +11,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scholar_chat/screens/register_screen.dart';
-import 'package:scholar_chat/screens/cubits/loginCubit/login_cubit.dart';
 import 'package:scholar_chat/screens/cubits/ChatCubit/chat_cubit.dart';
 import 'chat_screen.dart';
+import 'cubits/authenticationCubit/auth_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   bool isLoading = false;
@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if(state is LoginLoading)
           isLoading = true ;
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       if (formkey.currentState!.validate()) {
                         if (email != null && email!.isNotEmpty &&
                             password != null && password!.isNotEmpty) {
-                          BlocProvider.of<LoginCubit>(context)
+                          BlocProvider.of<AuthCubit>(context)
                               .LoginUser(email: email!, password: password!);
                         } else {
                           showSnakBar(context, "Please enter both email and password");
