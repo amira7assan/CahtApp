@@ -8,12 +8,22 @@ part 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(ChatInitial());
-  CollectionReference messages = FirebaseFirestore.instance.collection(kMessageCollection);
-  void sendMsg =({required String message ,required String email }){
+  CollectionReference messages =
+      FirebaseFirestore.instance.collection(kMessageCollection);
+  void sendMsg ({required String message, required String email}) {
     messages.add({
-      kMessage :message,
-      kcreatedAt : DateTime.now(),
-      'id' : email,
+      kMessage: message,
+      kcreatedAt: DateTime.now(),
+      'id': email,
     });
-  };
+  }
+  void getMsg () {
+    messages
+        .orderBy(kcreatedAt, descending: true)
+        .snapshots()
+        .listen((event){
+          print("success");
+    }
+
+    );}
 }
